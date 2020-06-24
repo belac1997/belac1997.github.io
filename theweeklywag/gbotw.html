@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="widt=device-width, initial-scale=1">
+	<title>G.B.O.T.W.</title>
+	<link rel="shortcut icon" href="images/wag.jpg">
+	<link rel="stylesheet" href="styles/normalize.css">
+	<link rel="stylesheet" href="styles/gbotw.css">
+    <link rel="stylesheet" href="styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobile_menu"});
+    	});
+    </script>
+</head>
+<body>
+
+  <header>
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+  	<img src="images/wag.jpg" alt="Logo">
+   	<h2>The Weekly Wag</h2>
+   	<h3>The Site for Man's Best Friend</h3>
+  </header>
+  <nav id="mobile_menu"></nav>
+  <nav id="nav_menu">
+  	<ul>
+    	<li><a href="home.html">Home</a></li>
+    	<li><a href="gbotw.html" class="current">G.B.O.T.W</a></li>
+    	<li><a href="forums.html">Forums</a></li>
+    	<li><a href="contacts.html">Contacts</a></li>
+	</ul>
+  </nav>
+  <main>
+
+		<article>
+			<center><h2>The Good Boy Of The Week</h2></center>
+			<p>This weeks G.B.O.T.W. goes to Otto from Jacksonville Florida.  Otto is a mutt and loves going for walks.
+				After each walk, all he wants to do is jump into the pool to cool off, but he does not swim, he just hangs out on the steps.
+				Otto's favorite game is fetch and he always returns the stick back to the thrower and waits for the stick to be thrown again.
+			</p>
+		
+				<video id="videoplayer" controls width="400" height="190" poster="images/otto.jpg">
+					<source src="media/ottothedog.mp4">
+				
+    				<object type="application/x-shockwave-flash" width="480" height="270">
+        				<param name="movie" value="media/ottothedog.swift" />
+        				<param name="wmode" value="transparent" />
+        				<param name="quality" value="high" />
+        				<!--[if !IE]>-->
+            				<object type="application/x-shockwave-flash"
+                    				data="media/ottothedog.swift"
+                    				width="480" height="270">
+                				<param name="wmode" value="transparent" />
+                				<param name="quality" value="high" />
+            				</object>
+        				<!--<![endif]-->
+    				</object>    
+				</video>
+			<dl>
+				<dt><b>Otto's Favorite Activities</b></dt>
+				<dt>Walking The Neighborhood</dt>
+				<dd>Loves meeting new dogs</dd>
+				<dt>Playing Fetch</dt>
+				<dd>Likes the largest sticks</dd>
+				<dt>Wading in the pool</dt>
+				<dd>Stays on the pool steps</dd>
+				<dt>Car Rides</dt>
+				<dd>Takes the driver seat</dd>
+			</dl>
+		</article>
+
+  </main>
+  <footer>
+	<p>&copy; 2018 caleb Rigby</p>
+  </footer>
+</body>
+</html>
