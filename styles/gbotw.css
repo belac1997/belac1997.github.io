@@ -1,17 +1,8 @@
-html {
-	background-image: url("../images/grass.jpg");	
-	background-repeat: repeat-x;
-	background-size: 49%;
 
-}
 body  {
 	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
 	max-width: 960px;
 	width: 95%;                        /* fixed width was 800 */
-	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
 	margin: 5px auto; 
 	padding: 0;
 	border-style: solid;
