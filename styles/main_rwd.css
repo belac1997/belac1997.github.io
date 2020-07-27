@@ -21,7 +21,7 @@ h1, h2, h3, p {
 
 /* Header */
 header {
-    font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
+    
     padding: .9375em 1.875% .9375em 1.875%;  /* 15 / 16; 15 / 800 x 100 */
 } 
 header img { 
@@ -31,7 +31,8 @@ header img {
 	max-width: 85px;
 	min-width: 40px;
 } 
-header h2 {		
+header h2 {
+	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
 	font-size: 230%;
 	margin-left: 250px;
 }
