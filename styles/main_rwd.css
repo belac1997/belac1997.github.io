@@ -21,6 +21,7 @@ h1, h2, h3, p {
 
 /* Header */
 header {
+    font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
     background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
     background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
     background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
