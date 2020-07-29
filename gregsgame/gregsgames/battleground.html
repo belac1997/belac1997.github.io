@@ -1,0 +1,175 @@
+<html>
+<head>
+	<title>Greg's Gambits | The Battleground</title>
+	<link rel="shortcut icon" href="../images/superhero.jpg" />
+	<link href="../greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var heroPlay = 0; var heroPts = 100; var trollPts = 100; var trollPlay = 0;
+	var rocks = "magic rocks"; var sword = "the sword"; var arrow = "bow and arrow";
+	var heroChoice = " "; var trollChoice = " ";
+	
+    function startGame()
+    {
+		alert("This round of the battle begins now!");
+        heroPlay = 0; heroPts = 100; trollPts = 100; trollPlay = 0;
+		rocks = "magic rocks"; sword = "the sword"; arrow = "bow and arrow";
+		heroChoice = " "; trollChoice = " "; 
+		document.getElementById("trollPts").innerHTML = (trollPts);
+		document.getElementById("heroPts").innerHTML = (heroPts);
+		//document.getElementById("playerWeapon").innerHTML = ("Your weapon: ");
+		document.getElementById("trollWeapon").innerHTML = ("The troll's weapon: ");
+		document.getElementById("winner").innerHTML = ("&nbsp;");
+		document.getElementById("rock").style.display="initial";
+		document.getElementById("sword").style.display="initial";
+		document.getElementById("arrow").style.display="initial";
+		document.getElementById("quit").style.display="initial";
+    }
+        
+    function battleIt(heroPlay)
+    {
+		if ((trollPts >= 130) || (heroPts >= 130) || (heroPlay==4))
+			winnerResults(heroPlay,trollPts,heroPts);
+		// get troll's weapon
+		trollPlay = Math.floor(Math.random() * 3 + 1);
+		// assign weapon to player and troll
+		if (trollPlay == 1)
+			trollChoice = rocks;
+		if (trollPlay == 2)
+			trollChoice = sword;
+		if (trollPlay == 3)
+			trollChoice = arrow;
+		if (heroPlay == 1)
+			heroChoice = rocks;
+		if (heroPlay == 2)
+			heroChoice = sword;
+		if (heroPlay == 3)
+			heroChoice = arrow;
+		//display weapon selections
+		//document.getElementById("playerWeapon").innerHTML = ("Your weapon: " + heroChoice);
+		document.getElementById("trollWeapon").innerHTML = ("The troll's weapon: " + trollChoice);
+		document.getElementById("heroWeapon").innerHTML = ("The wizard's weapon: " + heroChoice);
+		findWinner(heroPlay, trollPlay);
+	}
+        
+    function findWinner(heroPlay, trollPlay)
+    {
+		if (((trollPlay == 1) && (heroPlay == 3)) || ((trollPlay == 2) && (heroPlay == 1)) || ((trollPlay == 3) && (heroPlay == 2)))
+		{
+			document.getElementById("winner").innerHTML = ("<img src='../images/troll.jpg' />");
+			trollPts = trollPts + 10;
+			heroPts = heroPts - 10;
+			document.getElementById("trollPts").innerHTML = (trollPts);
+			document.getElementById("heroPts").innerHTML = (heroPts);
+
+		}
+		if (((heroPlay == 1) && (trollPlay == 3)) || ((heroPlay == 2) && (trollPlay == 1)) || ((heroPlay == 3) && (trollPlay == 2)))
+		{
+			document.getElementById("winner").innerHTML = ("<img src='../images/wizard.jpg' />");
+			trollPts = trollPts - 10;
+			heroPts = heroPts + 10;
+			document.getElementById("trollPts").innerHTML = (trollPts);
+			document.getElementById("heroPts").innerHTML = (heroPts);
+		}
+		if (((heroPlay == 1) && (trollPlay == 1)) || ((heroPlay == 2) && (trollPlay == 2)) || ((heroPlay == 3) && (trollPlay == 3)))
+		{
+			document.getElementById("winner").innerHTML = ("This round is a tie. New weapons must be chosen..."); 
+		}
+		/*var oldStyle = document.getElementById("winner").parentElement.style;
+		document.getElementById("winner").parentElement.style='none';
+		document.getElementById("winner"). document.getElementById("winner").parentElement.style=oldStyle;		*/
+
+		if((trollPts >= 130) || (heroPts >= 130))
+		{
+			winnerResults(heroPlay, trollPts, heroPts)
+		}
+    }
+    function winnerResults(heroPlay, trollPts, heroPts)
+    {
+		document.getElementById("rock").style.display="none";
+		document.getElementById("sword").style.display="none";
+		document.getElementById("arrow").style.display="none";
+		document.getElementById("quit").style.display="none";
+		
+		//display the final winner
+		if (heroPlay == 4)
+			document.getElementById("winner").innerHTML = ("It's true: when you run, you live to fight another day. See you again soon!");
+		if (trollPts >= 130)
+			document.getElementById("winner").innerHTML = ("The battle has been fought valiently but the troll has beaten you. Go home and nurse your wounds.");
+		if (heroPts >= 130)
+			document.getElementById("winner").innerHTML = ("The battle has been fought valiently and you have prevailed! Congratulations!");
+    
+    }
+</script>
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body>
+<header>
+ <img src="../images/superhero.jpg" />
+ <h1 align="center">The Battleground</h1>
+</header>
+<div style ="clear:both;"></div>  
+<nav>
+	<p><a href="../index.html">Home</a>
+	<a href="../greg.html">About Greg</a>
+	<a href="../play_games.html">Play a Game</a>
+	<a href="../sign.html">Sign In</a>
+	<a href="../contact.html">Contact Us</a>
+	<a href="../aboutyou.html">Tell Greg About You</a>
+	<a href="../sign_up.html">Sign up Now!</a></p>
+</nav>
+<main>
+    <section>
+      <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+      <tr>
+          <td><img src="../images/wizard.jpg" width="120" height="168" /></td>
+          <td><img src="../images/troll.jpg" width="120" height="168" /></td>
+      </tr>
+      <tr>
+          <td><span class="style1">Wizard uses (select one): </span></td>
+          <td><span class="style1">Troll uses: </span></td>
+      </tr>
+      <tr>
+          <td id = "playerWeapon"><span class="style1"><img src="../images/rock.jpg" id="rock" alt="rock" onClick="battleIt(1)" />
+			  <img src="../images/sword.jpg" id="sword" alt="sword" onClick="battleIt(2)" /><br />
+			  <img src="../images/arrow.jpg" id="arrow" alt="arrow" onClick="battleIt(3)" />
+			  <input type="button" id="quit" value="Quit Game" onClick = "battleIt(4)" />
+			  </span></td>
+		  <td><img src="../images/rock.jpg" alt="rock" onClick="javascript:void" />
+			  <img src="../images/sword.jpg" alt="sword" onClick="javascript:void" /><br />
+			  <img src="../images/arrow.jpg" alt="arrow" onClick="javascript:void" />
+		  </td>
+	  </tr>
+	  <tr>
+		  <td id = "heroWeapon"><span class="style1">Weapon goes here</span></td>
+          <td id = "trollWeapon"><span class="style1">Weapon goes here</span></td>
+      </tr>
+      <tr>
+          <td colspan = "2"><span class="style1">The winner is:</span></td>
+      </tr>
+      <tr>
+          <td colspan = "2" id="winner" align = "left" class="style1">&nbsp;</td>
+      </tr>
+      <tr>
+          <td><span class="style1">Wizard points: </span></td> 
+          <td><span class="style1">Troll points:</span></td>
+      </tr>  
+      <tr>
+          <td class="style1" id = "heroPts">100</td> <td class="style1" id = "trollPts">100</td>
+      </tr>
+      <tr>
+          <td><input type="button" id="battle" value="Let the battle begin!" onclick="startGame()"; /> </td>
+          <td><input type="button" id="return" value="Return to battle instructions" onclick="location.href = 'greg_battle.html'"; /></td>
+	  </tr>
+    </table>
+   </section>
+</main>
+<footer>Copyright &copy; 2019 Greg's Gambits<br />
+<a href="mailto:yourfirstname@yourlastname.com">caleb@rigby.com</a>
+</footer>
+</body>
+</html>

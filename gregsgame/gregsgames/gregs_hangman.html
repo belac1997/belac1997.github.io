@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title>Greg's Gambits | Hangman</title>
+		<link rel="shortcut icon" href="../images/superhero.jpg" />
+        <link href="../greg.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="mySource.js"></script>
+        <script>
+        var nooseCount; var wordNum;
+        var picture; 
+        var newWord; var win; 
+        var lgth; var word; var guessLetter; var goodGuess;
+        function startHangman()
+        {
+            nooseCount = 0;
+            wordNum = Math.floor((Math.random()*9)+1);
+            picture = "pic" + wordNum + ".jpg";
+            switch(wordNum)
+            {
+                case 1:
+                    word = "ghost"; break;
+                case 2:
+                    word = "horse"; break;
+                case 3:
+                    word = "insect"; break;
+                case 4:
+                    word = "celery"; break;
+                case 5:
+                    word = "pelican"; break;
+                case 6:
+                    word = "jewelbox"; break;
+                case 7:
+                    word = "castle"; break;
+                case 8:
+                    word = "monster"; break;
+                case 9:
+                    word = "bunny"; break;
+            }
+            newWord = ""; win = false;
+            lgth = word.length; goodGuess = false;
+            alert("Hehehehe... We're cheater's. WORD = " + word );
+            for (var i = 0; i < lgth; i++) {
+                newWord = newWord + "_ ";
+			}
+            document.getElementById("noose").innerHTML = ("<img src ='../images/hangman0.gif' />");
+            document.getElementById("game").innerHTML = newWord;
+            document.getElementById("guess").style.display="";
+        }
+        function makePlay()
+        {
+            if (win == false && nooseCount < 10)
+            {
+                goodGuess = false;
+                guessLetter = document.getElementById("userInput").value;
+                for (var j = 0; j < lgth; j++)
+                {
+                    if (guessLetter == word.charAt(j))
+                    {
+                        goodGuess = true;
+                        var offSet = 2*j;
+                        newWord = setCharAt(newWord, offSet, guessLetter);
+                    } 
+                }
+                document.getElementById("game").innerHTML = newWord;
+                win = checkWord(word, newWord);
+                if (win == true)
+                {
+                    document.getElementById("result").innerHTML = ("You win!");
+                    document.getElementById("noose").innerHTML = ("<img src = ' ../images/" + picture + "' />");
+                }
+                else if (win == false)
+                {
+                    document.getElementById("result").innerHTML = ("not a winner yet");
+                    if (goodGuess == false)
+                    {
+                        nooseCount = nooseCount + 1;
+                        document.getElementById("noose").innerHTML = ("<img src ='../images/hangman" + nooseCount + ".gif' />");
+                    }
+                }
+            }
+            if (nooseCount == 10)
+            {
+                document.getElementById("result").innerHTML = ("Sorry, you lose!");
+                document.getElementById("guess").style.display="hidden";
+            }
+        }
+        function checkWord(word, otherWord) 
+        {
+            var cleanWord;
+            cleanWord = otherWord;
+            cleanWord = otherWord.replace(/ /g, "");
+            if (word == cleanWord)
+                return true;
+            else 
+                return false;
+        }
+        function setCharAt(str,index,chr) 
+        {
+            if(index > str.length-1) 
+                return str;
+            return str.substr(0,index) + chr + str.substr(index+1);
+        }	
+        </script>
+    </head>
+<body>
+	<header>
+		<img src="../images/superhero.jpg" class="floatleft" />
+		<h1 id="logo"><em>The Game of Hangman</em></h1>
+ 		<h2 align="center">Greg Challenges You to a Game of Hangman</h2>
+		<p>&nbsp;</p>
+    </header>
+    <nav>
+		<p><a href="../index.html">Home</a>
+		<a href="../greg.html">About Greg</a>
+		<a href="../play_games.html">Play a Game</a>
+		<a href="../sign.html">Sign In</a>
+		<a href="../contact.html">Contact Us</a>
+		<a href="../aboutyou.html">Tell Greg About You</a>
+		<a href="../sign_up.html">Sign up Now!</a></p>
+	</nav>
+	<main>
+	    <section>
+            <p><input type="button" value = "Start the game" onclick="startHangman();" /></p>
+            <div id = "noose" class = "floatright"><img src ="../images/hangman10.gif" /></div>
+            <div id = "game"><p>&nbsp;</p></div>
+            <div id = "result"><p>&nbsp;</p></div>
+            <p><input type="text" id="userInput" size="5" /><button id="guess" onclick="makePlay();">Guess</button></p>
+		</section>
+	</main>
+	<footer>Copyright &copy; 2019 Greg's Gambits<br />
+		<a href="mailto:yourfirstname@yourlastname.com">caleb@rigby.com</a>
+	</footer>
+</body>
+</html>

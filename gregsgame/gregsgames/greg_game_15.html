@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>Greg's Gambits | Greg's 15</title>
+		    <link rel="shortcut icon" href="../images/superhero.jpg" />
+            <link href="../greg.css" rel="stylesheet" type="text/css" />
+            <script type = "text/javascript">
+                var cells;
+                var swapped;
+                function setup()
+                {
+                   cells = new Array([document.getElementById("cell00"),document.getElementById("cell01"), document.getElementById("cell02"), document.getElementById("cell03")], 
+                   [document.getElementById("cell10"), document.getElementById("cell11"),document.getElementById("cell12"), document.getElementById("cell13")], 
+                   [document.getElementById("cell20"), document.getElementById("cell21"),document.getElementById("cell22"), document.getElementById("cell23")], 
+                   [document.getElementById("cell30"), document.getElementById("cell31"), document.getElementById("cell32"), document.getElementById("cell33")]); 
+                   placeNumbers();
+                }
+                function placeNumbers()
+                {
+                    var numbers = new Array();
+                    for (var i=0; i<=16; i++)
+                        numbers[i] = i;
+                    var randomLoc;
+                    var temp;
+                    for (i= 0; i < 16 ; i++)
+                    {
+                            randomLoc = Math.floor(Math.random()* 15 + 1);
+                            temp = numbers[i];
+                            numbers[i] = numbers[randomLoc];
+                            numbers[randomLoc] = temp;
+                    }
+                    i = 0;
+                    for (var rows = 0; rows < 4; rows++)
+                    {
+                        for (var cols = 0; cols < 4; cols++)
+                        {
+                            if (numbers[i] != 0)
+                               cells[rows][cols].innerHTML = numbers[i];
+                            else
+                                cells[rows][cols].innerHTML = "";
+                                ++i;
+                        }
+                    }
+                }
+                function doClick(row, col)
+                {
+                    var top = row - 1;
+                    var bottom = row + 1;
+                    var left = col - 1;
+                    var right = col + 1;
+                    swapped = false;
+                        if(top != -1 && cells[top][col].innerHTML == "")
+                            swap(cells[row][col], cells[top][col]);
+                        else 
+                        if(right != 4 && cells[row][right].innerHTML == "")
+                            swap(cells[row][col], cells[row][right]);
+                        else 
+                        if(bottom != 4 && cells[bottom][col].innerHTML == "")
+                            swap(cells[row][col], cells[bottom][col]);
+                        else 
+                        if (left != -1 && cells[row][left].innerHTML == "")
+                             swap(cells[row][col], cells[row][left]);
+                        else
+                             alert("Illegal move.");
+                        checkWinner();
+                }
+                function swap(firstCell, secondCell)
+                {
+                    swapped = true;
+                    secondCell.innerHTML = firstCell.innerHTML;
+                    firstCell.innerHTML = "";
+                }
+                function checkWinner()
+                {
+                    var win = true;
+                    for (var i = 0; i < 4; i++)
+                    {
+                        for (var j = 0; j < 4; j++)
+                        {
+                             if (!(cells[i][j].innerHTML == i*4 + j + 1))
+                             if (!(i == 3 && j == 3))
+                             win = false;
+                        }
+                    }		
+                    if (win)
+                    {
+                        alert("Congratulations! You won!");
+                        if (window.prompt("Play again?", "yes"))
+                        placeNumbers();
+                    }
+                }
+        </script>
+    </head>
+    <body onload ="setup()">
+        <header>
+            <img src="../images/superhero.jpg" class="floatleft" />
+            <h1 id="logo"><em>Greg's 15</em></h1>
+			<h2 align="center">Can you order the numbers?</h2>
+            <p>&nbsp;</p>
+        </header>
+        <nav>
+			<p><a href="../index.html">Home</a>
+			<a href="../greg.html">About Greg</a>
+			<a href="../play_games.html">Play a Game</a>
+			<a href="../sign.html">Sign In</a>
+			<a href="../contact.html">Contact Us</a>
+			<a href="../aboutyou.html">Tell Greg About You</a>
+			<a href="../sign_up.html">Sign up Now!</a></p>
+		</nav>
+        <main>
+            <section>
+                <p><input type="button" value = "Start the game" onclick="setup();" /></p>
+                <p>You can move any number into an empty spot by moving up, down,right, or left. Diagonal moves are not allowed. The object is to get all the numbers into correct order, from 1 through 15 with the empty space at the end. </p>
+                <table width = "60%" align = "center">
+                <tr>
+                    <td height = "60"><span onclick = "doClick(0,0)" id = "cell00" />&nbsp;</td>
+                    <td><span onclick = "doClick(0,1)" id = "cell01" />&nbsp;</td>
+                    <td><span onclick = "doClick(0,2)" id = "cell02" />&nbsp;</td>
+                    <td><span onclick = "doClick(0,3)" id = "cell03" />&nbsp;</td>
+                </tr> <tr>
+                    <td height = "60"><span onclick = "doClick(1,0)" id = "cell10" />&nbsp;</td>
+                    <td><span onclick = "doClick(1,1)" id = "cell11" />&nbsp;</td>
+                    <td><span onclick = "doClick(1,2)" id = "cell12" />&nbsp;</td>
+                    <td><span onclick = "doClick(1,3)" id = "cell13" />&nbsp;</td>
+                </tr> <tr>
+                    <td height = "60"><span onclick = "doClick(2,0)" id = "cell20" />&nbsp;</td>
+                    <td><span onclick = "doClick(2,1)" id = "cell21" />&nbsp;</td>
+                    <td><span onclick = "doClick(2,2)" id = "cell22" />&nbsp;</td>
+                    <td><span onclick = "doClick(2,3)" id = "cell23" />&nbsp;</td>
+                </tr> <tr>
+                    <td height = "60"><span onclick = "doClick(3,0)" id = "cell30" />&nbsp;</td>
+                    <td><span onclick = "doClick(3,1)" id = "cell31" />&nbsp;</td>
+                    <td><span onclick = "doClick(3,2)" id = "cell32" />&nbsp;</td>
+                    <td><span onclick = "doClick(3,3)" id = "cell33" />&nbsp;</td>
+                </tr>
+                </table>
+            </section>
+        </main>
+        <footer>Copyright &copy; 2019 Greg's Gambits<br />
+            <a href="mailto:yourfirstname@yourlastname.com">caleb@rigby.com</a>
+        </footer>
+    </body>
+</html>

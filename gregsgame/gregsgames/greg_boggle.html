@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>Greg's Gambits | Greg's Boggle</title>
+		<link rel="shortcut icon" href="../images/superhero.jpg" />
+        <link href="../greg.css" rel="stylesheet" type="text/css" />
+        <!-- link to js page -->
+		<script type="text/javascript" src="gregBoggle.js"></script>
+        <script>
+        function boggle()
+        {
+            // declare and initialize variables and arrays
+			var play = "";
+			var score = 0;
+			var flag = 0;
+			var num = Math.floor(Math.random()*8)+1;
+			compWords = new Array;
+			notAword = new Array;
+			playWords = new Array;
+			compWords = words(num);
+			yourWord = compWords[0];
+			document.getElementById("letters").innerHTML = yourWord;
+            //get a word
+
+            //get player entries
+			while (play != "Q") {
+				play = prompt("enter a word or enter Q when done");
+				playWords.push(play);
+				if(play != "Q") {
+					document.getElementById("entries").innerHTML = playWords.toString();
+				}				
+			}
+            //check winning score and list bad words
+			var complgth = compWords.length;
+			var playlgth = (playWords.length - 1)
+			for (var i = 0; i < playlgth; i++) {
+				flag = 0;
+				for (var k = 0; k < complgth; k++) {
+					if (playWords[i] == compWords[k]) {
+						score++;
+						flag = 1;
+					}
+				}
+				if (flag == 0) {
+					notAword.push(playWords[i]);
+				}
+			}
+			document.getElementById("result").innerHTML = ("Your score is " + score + ". The following entries are not valid words: <br />" + notAword.toString());
+        }
+        </script>
+    </head>
+    <body>
+        <header>
+            <img src="../images/superhero.jpg" class="floatleft" />
+            <h1 id="logo"><em>Greg's Game of Boggle</em></h1>
+			<h2 align="center">Find all the words</h2>
+            <p>&nbsp;</p>
+        </header>
+        <nav>
+			<p><a href="../index.html">Home</a>
+			<a href="../greg.html">About Greg</a>
+			<a href="../play_games.html">Play a Game</a>
+			<a href="../sign.html">Sign In</a>
+			<a href="../contact.html">Contact Us</a>
+			<a href="../aboutyou.html">Tell Greg About You</a>
+			<a href="../sign_up.html">Sign up Now!</a></p>
+		</nav>
+        <main>
+            <section>
+                 <p>The object of the game is to create as many words as you can, in a given time limit, from the letters shown below. When you are ready to begin, click the button.</p>
+                 <!-- put in a button to begin the game -->
+				 <p><input type="button" value="begin the game" onclick="boggle();" onclick="setTimer();"/></p>
+                 <!-- display the letters selected -->
+				 <h2><br /><br />Letters you can use:<br /><div id="letters">&nbsp;</div><br /></h2>
+                 <!-- display words player enters -->
+				 <h2>Your words so far: <br /><div id="entries">&nbsp;</div><br /></h2>
+                 <!-- display results -->
+				 <h2>Result:<br /><div id="result">&nbsp;</div></h2>
+
+				 
+
+            </section>
+        </main>
+        <footer>Copyright &copy; 2019 Greg's Gambits<br />
+                <a href="mailto:yourfirstname@yourlastname.com">caleb@rigby.com</a>
+        </footer>
+    </body>
+</html>
