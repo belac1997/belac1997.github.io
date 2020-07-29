@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Greg's Gambits | Game of 21</title>
+	<link href="../greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function game21()
+{
+		//initialize variables
+		var heroHand = 0; var dealerHand = 0;
+		var cardOne = 0; var cardTwo = 0;
+		var heroPts = 0; var dealerPts = 0;
+		var heroDraw = 0;
+		
+		
+		
+		var heroPlay = 0; var trollPlay = 0;
+		var rocks = "magic rocks"; var sword = "the sword";
+		var arrow = "bow and arrow";
+		var heroChoice = " "; var trollChoice = " ";
+		//fill HTML page
+		document.getElementById("dealerPts").innerHTML = (dealerPts);
+		document.getElementById("heroPts").innerHTML = (heroPts);
+		document.getElementById("winner").innerHTML = ("&nbsp;");
+		//loop repeats until dealer or player get 130 points
+ 		while ((dealerPts < 200) && (heroPts < 200)) 
+		{
+			// get player's hand
+			cardOne = Math.floor(Math.random() * 11) + 2;
+			cardTwo = Math.floor(Math.random() * 11) + 2;
+			heroHand = cardOne + cardTwo;
+			heroDraw = parseInt(prompt("Your cards are " + cardOne + " and " + cardTwo + ", which add up to " + heroHand + ". What do you do? Enter 1 to draw (enter 1) or 2 to hold: (Enter 3 to leave the game at any time)" , " " ))
+			if (heroDraw == 3) break;
+			while (1)
+			{
+				if (heroDraw == 2)
+				{
+					alert("You hold with a total of " + heroHand + ". It it now the dealer's turn.");
+					break;
+				}
+				if (heroDraw == 1)
+				{
+					cardOne = Math.floor(Math.random() * 11) + 2;
+					heroHand = cardOne + heroHand;
+					if (heroHand > 21)
+					{
+						alert("You draw a " + cardOne + " with a total of " + heroHand + ". Oh No! You're over 21!")
+						break;
+					}
+					else	
+					{
+					heroDraw = parseInt(prompt("You draw a " + cardOne + " with a total of " + heroHand + ". What do you do? Enter 1 to draw (enter 1) or 2 to hold: " , " " ))
+					}
+				}
+				else
+				{
+					break;
+				}
+			}
+			// get dealer's hand
+			dealerHand = (Math.floor(Math.random() * 11) + 2) + (Math.floor(Math.random() * 11) + 2);
+			while (1)
+			{
+				if (dealerHand >= 21)
+				{
+					alert("The dealer does not draw a card.");
+					break;
+				}
+				if ((heroHand > 21) || (dealerHand > heroHand))
+				{
+					alert("The dealer does not draw a card.");
+					break;
+				}
+				else
+				{
+					dealerHand = dealerHand + (Math.floor(Math.random() * 11) + 2);
+					alert("The dealer draws a card.");
+				}
+			}
+			alert("This round of the game is over. Let's see who won!");
+			//find the winner
+			if ((dealerHand > heroHand)&&(dealerHand <= 21) || ((heroHand > 21)&&(dealerHand <= 21)))
+			{	
+				alert("The dealer beat you with a " + dealerHand + " to your " + heroHand + ".");
+				document.getElementById("winner").innerHTML = ("<img src='images/troll.jpg' />");
+				dealerPts = dealerPts + dealerHand;
+				document.getElementById("dealerPts").innerHTML = (dealerPts);
+				document.getElementById("heroPts").innerHTML = (heroPts);
+			}
+			if ((dealerHand < heroHand)&&(heroHand <= 21) || ((heroHand <= 21)&&(dealerHand > 21))) 
+			{
+				alert("You beat the dealer with a " + heroHand + " to their " + dealerHand + ".");
+				document.getElementById("winner").innerHTML = ("<img src='images/wizard.jpg' />");
+				heroPts = heroPts + heroHand;
+				document.getElementById("dealerPts").innerHTML = (dealerPts);
+				document.getElementById("heroPts").innerHTML = (heroPts);
+			}
+			if (dealerHand == heroHand)
+			{
+				alert("You both tied with a " + heroHand + " and a " + dealerHand + ".");
+				document.getElementById("winner").innerHTML = ("This round is a tie.");
+			}
+			if ((heroHand > 21)&&(dealerHand > 21))
+			{
+				alert("You both lost with a " + heroHand + " and a " + dealerHand + ".");
+				document.getElementById("winner").innerHTML = ("This round is a tie.");
+			}
+		}
+		//display the final winner
+		if (heroDraw == 3)
+			document.getElementById("winner").innerHTML = ("When you don't bet, you don't lose. See you again soon!");
+		if (dealerPts >= 200)
+			document.getElementById("winner").innerHTML = ("The dealer gives you a greedy smile. Better luck next time.");
+		if (heroPts >= 200)
+			document.getElementById("winner").innerHTML = ("You have bested the dealer at his own game! Congratulations!");	
+}
+</script>
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body>
+<header>
+ <img src="../images/superhero.jpg" />
+ <h1 align="center">Game of 21</h1>
+</header>
+<div style ="clear:both;"></div>  
+	<nav>
+		<p><a href="../index.html">Home</a>
+		<a href="../greg.html">About Greg</a>
+		<a href="../play_games.html">Play a Game</a>
+		<a href="../sign.html">Sign In</a>
+		<a href="../contact.html">Contact Us</a>
+		<a href="../aboutyou.html">Tell Greg About You</a>
+		<a href="../sign_up.html">Sign up Now!</a></p>
+	</nav>
+<main>
+    <section>
+        <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+          <tr>
+              <td><img src="../images/wizard.jpg" width="120" height="168" /></td>
+              <td><img src="../images/troll.jpg" width="120" height="168" /></td>
+           </tr>
+           <tr>
+               <td><span class="style1">Wizard </span></td>
+               <td><span class="style1">Dealer </span></td>
+           </tr>
+           <tr>
+              <tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
+              <tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td>
+           </tr>
+           <tr>
+              <td><span class="style1">Wizard points: </span></td> 
+              <td><span class="style1">Dealer points:</span></td></tr>  
+              <tr><td class="style1" id = "heroPts">0</td> <td class="style1" id = "dealerPts">0</td></tr>
+            <tr>
+              <td><input type="button" id="battle" value="Let the game begin!" onclick="game21()"; /> </td>
+            </tr>
+        </table>
+   </section>
+</main>
+<footer>Copyright &copy; 2019 Greg's Gambits<br />
+<a href="mailto:yourfirstname@yourlastname.com">caleb@rigby.com</a>
+</footer>
+</body>
+</html>

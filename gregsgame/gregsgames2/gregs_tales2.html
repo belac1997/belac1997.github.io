@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>Greg's Gambits | Greg's Tales</title>
+	<link href="../greg.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+	function startGame()
+	{
+		// initialize variables and prompt for information
+		var name = " ";
+		var color = " ";
+		var invention = " ";
+		var activity = " ";
+		var gender = "boy";
+		var numyears = " ";
+		name = prompt("Enter a scientist's name: ");		
+		gender = prompt("Is the scientist a boy or a girl? ");
+		letter = gender.charAt(0);
+		gender = (letter == "b" || letter == "B")?"boy":"girl";
+		pronoun = (gender == "boy")?"his":"her";		
+		color = prompt("Enter your favorite color: ");
+		invention = prompt("Enter an invention: ");
+		activity = prompt("Enter an activity you like: ");
+		numyears = prompt("Enter a number greater than 0: ");
+		
+		document.getElementById("content").innerHTML =("Twice upon a time, there was a scientist named Dr. " + name + ".  Dr. " + name + " was working on " + pronoun + " latest invention, the " + color + " " + invention + ".</p><p>The " + invention + " was powered when Dr. " + name+ " was " + activity + " in his house.  Suddenly, the " + invention + " exploded in " + pronoun + " face, which sent Dr. " + name + " back in time " + numyears + " years!</p>");
+	}
+	</script>
+	</head>
+	<body>
+		<header>
+		 <img src="../images/superhero.jpg" />
+		 <h1 id="logo"><em>Greg's Tales 2</em></h1>  
+		 <h2 align="center">Write your own tale</h2>       
+         <p>&nbsp;</p>
+        </header>
+        <nav>
+			<p><a href="../index.html">Home</a>
+			<a href="../greg.html">About Greg</a>
+			<a href="../play_games.html">Play a Game</a>
+			<a href="../sign.html">Sign In</a>
+			<a href="../contact.html">Contact Us</a>
+			<a href="../aboutyou.html">Tell Greg About You</a>
+			<a href="../sign_up.html">Sign up Now!</a></p>
+		</nav>
+		<main>
+            <h3>For this game, you will create a story by entering words as prompted. The story will change each time you run this game, as you enter different words.</h3>
+          <section>
+            <div id="content">
+                <p>&nbsp;</p>
+            </div>
+			<input type="button" value = "Click to Begin" onclick="startGame()" />
+          </section>
+        </main>
+		<footer>Copyright &copy; 2013 Greg's Gambits<br />
+                <a href="mailto:yourfirstname@yourlastname.com">caleb@rigby.com</a>
+        </footer> 
+	</body>
+</html>

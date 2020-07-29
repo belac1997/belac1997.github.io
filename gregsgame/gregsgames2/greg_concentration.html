@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title>Greg's Gambits | Greg's Concentration</title>
+        <link href="../greg.css" rel="stylesheet" type="text/css" />
+		<script>
+            var imgCompare = "";
+            var pairCompare = "";
+			var iImg = "";
+			var pImg = "";
+            var count = 0;
+            function getImage(x)
+            {
+                var iLgth = x.length;
+				if (iImg != "") {
+					document.getElementById(iImg).src="../images/coin_heads.gif";
+				}
+				iImg = x.substring(0, 3);				
+                imgCompare = x.substr(1, iLgth -1);
+				document.getElementById(iImg).src="../images/" + imgCompare + ".jpg";
+            }
+            function getPair(x)
+            {
+                var pLgth = x.length;
+				if (pImg != "") {
+					document.getElementById(pImg).src="../images/coin_tails.gif";
+				}
+				pImg = x.substring(0, 3);
+                pairCompare = x.substr(1, pLgth -1);
+				document.getElementById(pImg).src="../images/" + pairCompare + ".jpg";
+                compareThem(imgCompare, pairCompare);
+            }
+            function compareThem()
+            {
+                if (imgCompare == pairCompare)
+                {
+                    var newStuff = document.createElement("P");
+                    var newMessage = document.createTextNode(pairCompare);
+                    newStuff.appendChild(newMessage);
+                    document.getElementById("p"+ pairCompare).appendChild(newStuff);
+                    count++;
+					document.getElementById(pImg).onclick="";
+					document.getElementById(iImg).onclick="";
+					imgCompare = "";
+					pairCompare = "";
+					iImg = "";
+					pImg = "";
+                    checkEnd();
+                }
+                else
+                    alert ("wrong... Try again");
+					document.getElementById(pImg).src="../images/coin_tails.gif";
+					document.getElementById(iImg).src="../images/coin_heads.gif";
+					iImg = "";
+					pImg = "";
+					imgCompare = "";
+					pairCompare = "";
+            }
+            function checkEnd()
+            {
+                if (count == 8)
+                {
+                    var endIt = document.createElement("H3");
+                    var endMessage = document.createTextNode("Congratulations! You matched all the pictures!");
+                    endIt.appendChild(endMessage);
+                    document.getElementById("the_end").appendChild(endIt);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+             <img src="../images/superhero.jpg" class="floatleft" />
+             <h1 id="logo">Greg's Gambits </h1>
+             <h2 align="center"><em> Games for Everyone!</em></h2>			 
+             <p>&nbsp;</p>
+        </header>
+       <nav>
+		<p><a href="../index.html">Home</a>
+		<a href="../greg.html">About Greg</a>
+		<a href="../play_games.html">Play a Game</a>
+		<a href="../sign.html">Sign In</a>
+		<a href="../contact.html">Contact Us</a>
+		<a href="../aboutyou.html">Tell Greg About You</a>
+		<a href="../sign_up.html">Sign up Now!</a></p>
+	</nav>
+        <main>
+               <section>
+                    <h3>Match the picture with the correct other picture.</h3>
+                    <div id ="pictures">
+                    <table align = "center" border = "1">
+                    <tr><td colspan = "6">Click on the picture to select it...</td></tr>
+                        <tr>
+                            <td id = "ibananas"><img id="iba" src="../images/coin_heads.gif" onclick="getImage('ibananas')" /></td>
+                            <td id = "iwizard"><img id="iwi" src="../images/coin_heads.gif" onclick="getImage('iwizard')" /></td>
+                            <td id = "isword"><img id="isw" src="../images/coin_heads.gif" onclick="getImage('isword')" /></td>
+                            <td id = "ibracelet"><img id="ibr" src="../images/coin_heads.gif" onclick="getImage('ibracelet')" /></td>
+                        </tr>
+						<tr>
+                            <td id = "irabbit"><img id="ira" src="../images/coin_heads.gif" onclick="getImage('irabbit')" /></td>
+                            <td id = "inecklace"><img id="ine" src="../images/coin_heads.gif" onclick="getImage('inecklace')" /></td>
+                            <td id = "icelery"><img id="ice" src="../images/coin_heads.gif" onclick="getImage('icelery')" /></td>
+                            <td id = "iflowers"><img id="ifl" src="../images/coin_heads.gif" onclick="getImage('iflowers')" /></td>
+                        </tr>
+						<tr>
+                            <td colspan = "6">...then find the other pair on this side.</td>
+                        </tr>
+                        <tr>
+							<td id = "icelery"><img id="pce" src="../images/coin_tails.gif" onclick="getPair('pcelery')" /></td>
+							<td id = "irabbit"><img id="pra" src="../images/coin_tails.gif" onclick="getPair('prabbit')" /></td>
+							<td id = "iflowers"><img id="pfl" src="../images/coin_tails.gif" onclick="getPair('pflowers')" /></td>
+							<td id = "ibracelet"><img id="pbr" src="../images/coin_tails.gif" onclick="getPair('pbracelet')" /></td>
+                        </tr>
+						<tr>
+							<td id = "inecklace"><img id="pne" src="../images/coin_tails.gif" onclick="getPair('pnecklace')" /></td>
+							<td id = "ibananas"><img id="pba" src="../images/coin_tails.gif" onclick="getPair('pbananas')" /></td>
+							<td id = "iwizard"><img id="pwi" src="../images/coin_tails.gif" onclick="getPair('pwizard')" /></td>
+							<td id = "isword"><img id="psw" src="../images/coin_tails.gif" onclick="getPair('psword')" /></td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div id ="spellings">
+                    <table align = "center" cellpadding = "10" border = "1">
+					<tr><td colspan = "6">See what pictures that you matched correctly</td></tr>
+                        <tr>
+                            <td id = "pcelery" />
+                            <td id = "pbananas" />
+							<td id = "pwizard" />
+                            <td id = "pflowers" />
+                        </tr>
+                        <tr>                            
+                            <td id = "pnecklace" />
+                            <td id = "pbracelet" />
+                            <td id = "prabbit" />
+                            <td id = "psword" />
+                        </tr>
+                        </table>
+                </div>
+                <div id = "the_end">&nbsp;</div>
+            </section>
+        </main>
+        <footer>Copyright &copy; 2019 Greg's Gambits<br />
+            <a href="mailto:gregory@gambits.net">caleb@rigby.com</a>
+        </footer>
+    </body>
+</html>
