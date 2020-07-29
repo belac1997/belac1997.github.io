@@ -1,0 +1,123 @@
+html {
+	background-image: url(images/tavern.jpg), url(images/stonewall.jpg);
+	background-color: black;
+	background-repeat: repeat-x, repeat;
+	background-size: 100%, 10%;
+}
+body { 
+       background-image: url(background.gif);
+       color: #88ffff;
+       font-family: Verdana, Arial, sans-serif;
+}
+main { 
+	   margin-left: auto;    
+       margin-right: auto;
+       width:80%;
+       min-width:700px;
+      }
+
+header img {
+	float:left;
+	padding: 30px 0px 20px;
+    width="120";
+    height="120";
+}
+
+#logo {
+	text-align:center;
+	margin: 0;
+	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
+	padding-top: 30px;
+	padding-bottom: 20px;
+
+}
+nav { background-image: url(images/stonewall.jpg);
+	background-color: black;
+	background-repeat: repeat;
+	background-size: 60%;
+	border: medium groove #88FFFF;
+	float: left;
+	width: 200px;
+	padding-top: 10px;
+	text-align:left;
+	color: #88FFFF;
+	font-size: 12px;
+}
+nav a {text-decoration:none;
+                  margin: 15px;
+                  display: block;
+				  color: #88FFFF;
+				  font-size: 12px;
+}
+section { 	background-image: url(images/wood.jpg);
+	background-color: black;
+	background-repeat: repeat;
+	background-size: 40%;
+	margin-left: 150px;
+	padding: 30px;
+	overflow:auto;
+	border: medium groove #88FFFF;
+	line-height: 135%;
+	
+}
+
+
+footer { font-size: .60em;
+        font-style: italic;
+        text-align: center;
+        
+        padding-top: 20px;
+        padding-bottom: 20px;
+}
+
+h2 { text-transform: uppercase;
+     color: #88ffff;
+     font-size: 1.2em;
+     border-bottom: 1px none;
+     margin-right: 20px;
+}
+h3 {
+	color: #88ffff;
+	font-size: 1em;
+	margin-right: auto;
+	text-align: left;
+	padding-top: 20px;
+	padding-right: 150px;
+	padding-bottom: 20px;
+	padding-left: 150px;
+	line-height: 130%;
+}
+
+           
+.content {
+	margin: 20px;
+	padding: 20px;
+	height: 3700px;
+	width: 500px;
+}
+a {text-decoration:none;
+                  margin: 15px;
+                  display: block;
+				  color: #88FFFF;
+				  font-size: 12px;
+}
+a:hover {
+	color:  #000040;
+	background-color: #88ffff;
+}
+span {
+	font-size: 36px;
+	font-weight: bold;
+	font-family: "Courier New", Courier, mono;
+	color: #88ffff;
+	background-position: center center;
+	text-align: center;
+	vertical-align: middle;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
