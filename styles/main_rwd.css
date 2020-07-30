@@ -92,7 +92,7 @@ header h3 {
 #nav_menu ul li a.current {
 	font-weight: bold;
 }
-#nav_menu ul li a:hover, #nav_menu ul li a:focus {
+#nav_menu ul li a:hover {
 	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
     background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
     background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
