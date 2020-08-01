@@ -3,6 +3,7 @@ html {
 	background-color: black;
 	background-repeat: repeat-x, repeat;
 	background-size: 100%, 10%;
+	background-attachment: fixed;
 }
 body { 
        background-image: url(background.gif);
