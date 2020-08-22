@@ -6,14 +6,14 @@
 	<meta name="viewport" content="widt=device-width, initial-scale=1">
 	<title>Caleb Rigby Portfolio</title>
 	<link rel="shortcut icon" href="images/wag.jpg">
+	<link type="text/css" rel="stylesheet" href="styles/jquery-ui.min.css">
 	<link rel="stylesheet" href="styles/normalize.css">
 	<link rel="stylesheet" href="styles/main_rwd.css">
-    <link rel="stylesheet" href="styles/slicknav.css">
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script> 
 	<script type="text/javascript">
     	$(document).ready(function(){
-			$('#nav_menu').slicknav({prependTo:"#mobile_menu"});
+			$("#tabs").tabs();
     	});
     </script>
 </head>
@@ -23,18 +23,30 @@
    	<h2>Caleb Rigby's Portfolio</h2>
   </header>
   <nav id="mobile_menu"></nav>
-  <nav id="nav_menu">
-  	<ul>
-    	<li><a href="theweeklywag/home.html">The Weekly Wag</a></li>
-    	<li><a href="gregsgame/index.html">Greg's Games</a></li>
-    	<li><a href="memorygame/index.html">Memory Game</a></li>
-    	<li><a href="blank.html">Blank</a></li>
-	</ul>
-  </nav>
-  <main>
-	  <section><p>Hello, my name is Caleb Rigby and this is my portfolio.</p></section>
-  </main>
+    <main>         
+        <div id="tabs"> 
+            <ul>
+				<li><a href="#tabs-1">About Myself</a></li>
+                <li><a href="#tabs-2">The Weakly Wag</a></li>
+                <li><a href="#tabs-3">Greg's Games</a></li>
+                <li><a href="#tabs-4">Memory Game</a></li>
 
+            </ul>
+			<div id="tabs-1">
+				<p>About Myself</p>
+            </div>
+            <div id="tabs-2">
+                <a href="theweeklywag/home.html">The Weekly Wag</a>
+            </div>
+            <div id="tabs-3">
+				<a href="gregsgame/index.html">Greg's Games</a>
+            </div>
+            <div id="tabs-4">
+				<a href="memorygame/index.html">Memory Game</a>
+            </div>
+
+        </div>
+    </main> 
   <footer>
 	<p>&copy; 2020 caleb Rigby</p>
   </footer>
