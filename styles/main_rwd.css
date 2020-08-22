@@ -1,12 +1,17 @@
 html {
-
-	background-color: white;
-
+	background-image: url(backcode.png);
+	background-repeat: repeat-x, repeat;
+	background-size: 100%, 10%;
+	background-attachment: fixed;
 }
 body  {
 	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
 	max-width: 960px;
 	width: 95%;                        /* fixed width was 800 */
+	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
 	margin: 5px auto; 
 	padding: 0;
 	border-style: solid;
@@ -20,7 +25,10 @@ h1, h2, h3, p {
 
 /* Header */
 header {
-    
+    background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
     padding: .9375em 1.875% .9375em 1.875%;  /* 15 / 16; 15 / 800 x 100 */
 } 
 header img { 
@@ -30,8 +38,8 @@ header img {
 	max-width: 85px;
 	min-width: 40px;
 } 
-header h2 {
-	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
+header h2 {	
+	font-family: 'Merriweather', cursive;
 	font-size: 230%;
 	margin-left: 250px;
 }
@@ -91,7 +99,7 @@ header h3 {
 #nav_menu ul li a.current {
 	font-weight: bold;
 }
-#nav_menu ul li a:hover {
+#nav_menu ul li a:hover, #nav_menu ul li a:focus {
 	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
     background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
     background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
@@ -216,6 +224,10 @@ footer {
 	clear: both;
 	border-top: 2px solid black;
 	padding: .9375em 1.875% .9375em 1.875%;       /* top and bottom: 15 / 16; right and left: 15 / 800 x 100 */
+	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
 } 
 footer p {
 	font-size: 90%;
