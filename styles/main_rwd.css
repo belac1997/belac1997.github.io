@@ -1,9 +1,7 @@
 html {
-	background-image: url(backcode.png);
-	background-repeat: repeat-x, repeat;
-	backgroung-color: white;
-	background-size: 100%, 10%;
-	background-attachment: fixed;
+
+	background-color: white;
+
 }
 body  {
 	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
