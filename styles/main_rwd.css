@@ -1,8 +1,9 @@
 html {
-	background-image: url("../images/grass.jpg");	
-	background-repeat: repeat-x;
-	background-size: 49%;
-
+	background-image: url(backcode.png);
+	background-color: black;
+	background-repeat: repeat-x, repeat;
+	background-size: 100%, 10%;
+	background-attachment: fixed;
 }
 body  {
 	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
