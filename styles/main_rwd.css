@@ -1,9 +1,4 @@
-html {
-	background-image: url(backcode.png);
-	background-repeat: repeat-x, repeat;
-	background-size: 100%, 10%;
-	background-attachment: fixed;
-}
+
 body  {
 	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
 	max-width: 960px;
