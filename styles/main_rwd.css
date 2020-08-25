@@ -21,10 +21,7 @@ h1, h2, h3, p {
 
 /* Header */
 header {
-    background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
+	background-color: white;
     padding: .9375em 1.875% .9375em 1.875%;  /* 15 / 16; 15 / 800 x 100 */
 } 
 header img { 
