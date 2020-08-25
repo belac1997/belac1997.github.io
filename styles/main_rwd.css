@@ -35,7 +35,7 @@ header img {
 	min-width: 40px;
 } 
 header h2 {	
-	font-family: 'Merriweather', cursive;
+	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
 	font-size: 230%;
 	margin-left: 250px;
 }
