@@ -8,10 +8,6 @@ body  {
 	font-family: timesnewroman, 'timesnewroman', times, baskerville, georgia, serif;
 	max-width: 960px;
 	width: 95%;                        /* fixed width was 800 */
-	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
 	margin: 5px auto; 
 	padding: 0;
 	border-style: solid;
@@ -96,15 +92,7 @@ header h3 {
 	border-color: black;
 	color: black;
 }
-#nav_menu ul li a.current {
-	font-weight: bold;
-}
-#nav_menu ul li a:hover, #nav_menu ul li a:focus {
-	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-}
+
 main {
 	display: flex;
 }
@@ -224,10 +212,6 @@ footer {
 	clear: both;
 	border-top: 2px solid black;
 	padding: .9375em 1.875% .9375em 1.875%;       /* top and bottom: 15 / 16; right and left: 15 / 800 x 100 */
-	background-image: -webkit-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -moz-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: -o-linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
-    background-image: linear-gradient(90deg, white 0%, deepskyblue 50%, white 100%);
 } 
 footer p {
 	font-size: 90%;
@@ -248,48 +232,6 @@ footer p {
 	}
 }
 
-@media only screen and (max-width: 767px) {
-	#nav_menu {
-		display: none;
-	}
-	#mobile_menu {
-		display: block;
-	}
-	main {
-		flex-direction: column;
-	}
-	header h2 {
-		font-size: 200%;
-		margin-left: 0px;
-	}
-	header h3 {
-		margin-left: 0px;
-	}
-	section {
-		order: 1;
-		padding-left: 5%;
-		padding-bottom: .5em; 
-	}
-	section h2 {
-		font-size: 139%;
-		margin: 0;
-	}	
-	aside {
-		order: 2;
-		padding: 0 5% 1em 5%;
-	}
-	aside h2 span {	
-		display: inline;
-	}
-	#nav_list ul {
-		width: 50%;
-		padding-left: 25%;
-		text-align: center;
-	}
-	#nav_list ul li a {
-		padding-left: 0;
-	}
-}
 
 @media only screen and (max-width: 479px) {
 	header h2 {
